@@ -35,18 +35,16 @@ public class MyGoalReminder {
 
         input.close();
     }
-
-    // This method finds how much time is left from now till reminder
+    
     public static long calculateDelay(LocalTime time) {
         LocalTime now = LocalTime.now();
         long seconds = Duration.between(now, time).getSeconds();
 
         if (seconds < 0) {
-            // if time is already passed, remind next day
-            seconds += 86400; // 24 * 60 * 60
+            seconds += 86400;
         }
 
-        return seconds * 1000; // converting to milliseconds
+        return seconds * 1000;
     }
 }
 
